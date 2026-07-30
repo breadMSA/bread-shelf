@@ -4,7 +4,7 @@ compatibility_date = "2026-07-30"
 
 [vars]
 # Change these before deployment. Secrets are set with `wrangler secret put`.
-PUBLIC_ORIGIN = "https://YOUR-USER.github.io"
-GITHUB_OWNER = "YOUR-USER"
-GITHUB_REPO = "YOUR-REPOSITORY"
+PUBLIC_ORIGIN = "https://breadmsa.github.io"
+GITHUB_OWNER = "breadMSA"
+GITHUB_REPO = "bread-shelf"
 GITHUB_BRANCH = "main"

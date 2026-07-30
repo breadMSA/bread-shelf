@@ -11,7 +11,7 @@ GitHub Pages reader + visual author workspace.
 
 ## Visual author workspace
 
-Open `/#/bread`. In local preview the starter passphrase is `change-me`.
+Open `/#/bread`. Until the Worker below is deployed, this is only a local visual-editor preview; it is not a secure author route and its uploads exist only in that browser.
 
 The workspace is deliberately visual: write in content blocks, insert images, add quotes, dividers, and choice branches; drag blocks or use arrows to reorder them; add/reorder/delete chapters; add/delete stories; preview the reader at any time. A JSON backup exists only as an emergency backup format—you never edit it to write a story.
 
@@ -40,4 +40,4 @@ This repository includes `author-worker/`, a Cloudflare Worker that solves the a
 
 4. Put the deployed Worker URL in [assets/author-config.js](assets/author-config.js).
 
-Now the public site sends the password only to the Worker over HTTPS; the Worker keeps the password hash and GitHub token secret, verifies the author session, and publishes `data/stories.js` through the GitHub API. The public reader stays on GitHub Pages, while only you can use the author endpoint.
+Now the public site sends the password only to the Worker over HTTPS; the Worker keeps the password hash and GitHub token secret, verifies the author session, uploads covers to `assets/media/covers/` and chapter illustrations to `assets/media/illustrations/`, then publishes `data/stories.js` through the GitHub API. The public reader stays on GitHub Pages, while only you can use the author endpoint.
