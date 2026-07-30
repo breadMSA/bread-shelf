@@ -31,6 +31,11 @@ async function githubPut(env,path,content,message){
   if(!result.ok)throw new Error(await result.text());
 }
 
+async function triggerPagesBuild(env){
+  const result=await fetch(`https://api.github.com/repos/${env.GITHUB_OWNER}/${env.GITHUB_REPO}/pages/builds`,{method:"POST",headers:{authorization:`Bearer ${env.GITHUB_TOKEN}`,"user-agent":"bread-author-worker",accept:"application/vnd.github+json"}});
+  if(!result.ok)throw new Error(`GitHub Pages rebuild request failed: ${await result.text()}`);
+}
+
 async function publishImage(env,source,folder,name){
   const data=imageData(source); if(!data)return source;
   const digest=(await hash(data.content)).slice(0,16);
@@ -67,7 +72,8 @@ export default { async fetch(request,env) {
     try{
       const publicLibrary=await publishLibraryMedia(env,library);
       await githubPut(env,"data/stories.js",b64(`window.BREAD_LIBRARY = ${JSON.stringify(publicLibrary,null,2)};\n`),"Publish stories from Bread Studio");
-      return reply(env,{ok:true});
+      await triggerPagesBuild(env);
+      return reply(env,{ok:true,pagesBuild:"queued"});
     }catch(error){return reply(env,{error:"GitHub publish failed",detail:error.message},502)}
   }
   return reply(env,{error:"not found"},404);
