@@ -46,6 +46,9 @@ async function publishImage(env,source,folder,name){
 
 async function publishLibraryMedia(env,library){
   const published=structuredClone(library);
+  // Drafts remain only in the author's browser.  This server-side filter is
+  // deliberate: hiding a book in the UI alone would still publish its text.
+  published.books=(published.books||[]).filter(book=>!book.isPrivate);
   for(const book of published.books||[]){
     book.cover=await publishImage(env,book.cover,"covers",`${book.id}-cover`);
     for(const chapter of book.chapters||[]){
