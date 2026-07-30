@@ -1,0 +1,4 @@
+author-worker/.wrangler/
+node_modules/
+.dev.vars
+.env
