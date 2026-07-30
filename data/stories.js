@@ -11,7 +11,7 @@ window.BREAD_LIBRARY = {
       "englishTitle": "Before the Signal",
       "status": "連載準備中",
       "accent": "#a35c48",
-      "cover": "assets/placeholder-cover.svg",
+      "cover": "assets/media/covers/before-the-signal-cover-b8f2c8962f190e7d.jpg",
       "description": "在思想開始互通以前，人類先得決定：哪些部分仍然只屬於自己。",
       "tags": [
         "近未來",
