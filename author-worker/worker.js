@@ -1,5 +1,5 @@
 // Cloudflare Worker: author authentication and publishing for Bread Shelf.
-// Secrets (set with Wrangler): AUTHOR_PASSWORD_HASH, SESSION_SECRET, GITHUB_TOKEN.
+// Secrets (set with Wrangler): AUTHOR_PASSWORD, SESSION_SECRET, GITHUB_TOKEN.
 // The Worker uploads images before publishing stories.js, so public readers never
 // depend on the author's browser-local storage.
 const E = new TextEncoder(), D = new TextDecoder();
@@ -57,7 +57,7 @@ export default { async fetch(request,env) {
   const path=new URL(request.url).pathname;
   if(request.method==="POST"&&path==="/auth"){
     const {password}=await request.json();
-    if(!password||await hash(password)!==env.AUTHOR_PASSWORD_HASH)return reply(env,{error:"unauthorized"},401);
+    if(!password||password!==env.AUTHOR_PASSWORD)return reply(env,{error:"unauthorized"},401);
     const body=b64(JSON.stringify({exp:Date.now()+12*60*60*1000}));
     return reply(env,{token:body+"."+await mac(body,env.SESSION_SECRET)});
   }

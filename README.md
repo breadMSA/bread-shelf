@@ -30,13 +30,13 @@ This repository includes `author-worker/`, a Cloudflare Worker that solves the a
 3. From `author-worker/`, set secrets (they do not go in Git):
 
    ```powershell
-   npx wrangler secret put AUTHOR_PASSWORD_HASH
+   npx wrangler secret put AUTHOR_PASSWORD
    npx wrangler secret put SESSION_SECRET
    npx wrangler secret put GITHUB_TOKEN
    npx wrangler deploy
    ```
 
-   `AUTHOR_PASSWORD_HASH` is the SHA-256 hex digest of your chosen password. `GITHUB_TOKEN` needs permission to update this repository's contents.
+   `AUTHOR_PASSWORD` is your chosen passphrase and is stored encrypted as a Cloudflare secret; it never goes into this repository or the public website. `GITHUB_TOKEN` needs permission to update this repository's contents.
 
 4. Put the deployed Worker URL in [assets/author-config.js](assets/author-config.js).
 
