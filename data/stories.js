@@ -7,16 +7,15 @@ window.BREAD_LIBRARY = {
   "books": [
     {
       "id": "before-the-signal",
-      "title": "訊號之前",
-      "englishTitle": "Before the Signal",
-      "status": "連載準備中",
+      "title": "功能測試",
+      "englishTitle": "Feature Testing",
+      "status": "已完成",
       "accent": "#a35c48",
       "cover": "assets/media/covers/before-the-signal-cover-b8f2c8962f190e7d.jpg",
-      "description": "在思想開始互通以前，人類先得決定：哪些部分仍然只屬於自己。",
+      "description": "各種功能測試demo。你可以看到我在書中會加入什麼元素。",
       "tags": [
-        "近未來",
-        "科幻",
-        "認知主權"
+        "測試",
+        "demo"
       ],
       "updatedAt": "2026.07.30",
       "chapters": [
@@ -26,20 +25,20 @@ window.BREAD_LIBRARY = {
           "subtitle": "2047 年，東區神經資料中心",
           "blocks": [
             {
+              "id": "q1",
+              "type": "quote",
+              "text": "開始同步。",
+              "cite": "系統提示"
+            },
+            {
               "id": "p1",
               "type": "text",
-              "text": "警報響起時，林策還以為那只是凌晨例行的同步誤差。"
+              "text": "警報響起時，林策還以為那只是例行的同步誤差。"
             },
             {
               "id": "p2",
               "type": "text",
               "text": "直到控制台把一段不屬於任何使用者的記憶，標記成了：<em>正在等待被理解。</em>"
-            },
-            {
-              "id": "q1",
-              "type": "quote",
-              "text": "開始同步。",
-              "cite": "系統提示"
             },
             {
               "id": "p3",
@@ -53,9 +52,9 @@ window.BREAD_LIBRARY = {
             {
               "id": "i1",
               "type": "image",
-              "src": "assets/placeholder-scene.svg",
-              "alt": "資料中心外的夜色",
-              "caption": "東區神經資料中心，凌晨三點十七分。"
+              "src": "assets/media/illustrations/before-the-signal-prologue-i1-516be8193c7db377.png",
+              "alt": "資料中心外的傍晚景色",
+              "caption": "東區神經資料中心，下午六點十七分。"
             },
             {
               "id": "c1",
@@ -67,19 +66,22 @@ window.BREAD_LIBRARY = {
                   "label": "按下同步",
                   "set": "response",
                   "value": "sync",
-                  "result": "你讓系統完成同步。螢幕在一瞬間暗下，耳邊卻出現了一道陌生的呼吸。"
+                  "result": "你讓系統完成同步。螢幕在一瞬間暗下，耳邊卻出現了一道陌生的呼吸。",
+                  "gotoChapter": "chapter-1"
                 },
                 {
                   "label": "拔掉主機",
                   "set": "response",
                   "value": "cut",
-                  "result": "你拔掉主機。警報停了；但那串空白寄件人的通知，開始在所有螢幕上跳動。"
+                  "result": "你拔掉主機。警報停了；但那串空白寄件人的通知，開始在所有螢幕上跳動。",
+                  "gotoChapter": "chapter-ms7ly9oyeidi6"
                 },
                 {
                   "label": "先記下錯誤碼",
                   "set": "response",
                   "value": "record",
-                  "result": "你記下錯誤碼。它不是錯誤碼，而是一個日期：你還沒活到的明天。"
+                  "result": "你記下錯誤碼。它不是錯誤碼，而是一個日期：你還沒活到的明天。",
+                  "gotoChapter": "chapter-ms7lw46eq4ncn"
                 }
               ]
             },
@@ -132,7 +134,43 @@ window.BREAD_LIBRARY = {
               "type": "text",
               "text": "城市的天際線在無人計程車的尾燈裡慢慢往後退。他沒有回答。"
             }
-          ]
+          ],
+          "unlock": {
+            "key": "response",
+            "value": "sync"
+          }
+        },
+        {
+          "id": "chapter-ms7ly9oyeidi6",
+          "title": "第二章：屍物招領",
+          "subtitle": "兩天後",
+          "blocks": [
+            {
+              "id": "ms7ly9oyjpw6f",
+              "type": "text",
+              "text": "看來你選了拔掉主機。<div><i>不過這只是demo，我不打算花力氣為demo寫劇情。</i></div>"
+            }
+          ],
+          "unlock": {
+            "key": "response",
+            "value": "cut"
+          }
+        },
+        {
+          "id": "chapter-ms7lw46eq4ncn",
+          "title": "第三章：濕物招領",
+          "subtitle": "一天後",
+          "blocks": [
+            {
+              "id": "ms7lw46esmcfm",
+              "type": "text",
+              "text": "看來你選了記下錯誤碼。<div><i>不過這只是demo，我不打算花力氣為demo寫劇情。</i></div>"
+            }
+          ],
+          "unlock": {
+            "key": "response",
+            "value": "record"
+          }
         }
       ]
     }
