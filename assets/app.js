@@ -86,10 +86,10 @@
     const save=current=>{const s=readingState(r[1]),position={page:current,layout:"paged",updatedAt:Date.now()};s.positions??={};s.positions[r[2]]=position;s.latest={chapter:r[2],...position};saveState(r[1],s)};
     const sync=()=>{const current=Math.min(page(),total()-1),pages=total(),previous=$("[data-prev]"),next=$("[data-next]");$("[data-page-count]").textContent=`第 ${current+1} / ${pages} 頁`;$("[data-page-back]").disabled=current===0&&!previous;$("[data-page-back]").textContent=current===0&&previous?"← 上一章":"← 上一頁";$("[data-page-next]").textContent=current>=pages-1?(next?"下一章 →":"閱讀完畢"):"下一頁 →";$(".reading-progress").style.width=Math.round(current/Math.max(1,pages-1)*100)+"%";save(current)};
     const measure=()=>{body.style.columnWidth=`${stride()}px`;requestAnimationFrame(()=>{const s=readingState(r[1]),position=s.positions?.[r[2]]||(s.latest?.chapter===r[2]?s.latest:null);if(position?.layout==="paged")body.scrollLeft=Math.min(position.page||0,total()-1)*stride();sync()})};
-    const move=direction=>{const current=page(),pages=total();if(direction<0&&current===0){const previous=$("[data-prev]");if(previous)previous.click();return}if(direction>0&&current>=pages-1){const next=$("[data-next]");if(next)next.click();else go("");return}body.scrollTo({left:(current+direction)*stride(),behavior:"smooth"})};
-    let touchX=null;
-    const touchStart=e=>touchX=e.changedTouches[0].clientX;
-    const touchEnd=e=>{if(touchX===null)return;const distance=e.changedTouches[0].clientX-touchX;if(Math.abs(distance)>48)move(distance<0?1:-1);touchX=null};
+    const move=(direction,from=page())=>{const current=Math.min(Math.max(0,from),total()-1),pages=total();if(direction<0&&current===0){const previous=$("[data-prev]");if(previous)previous.click();return}if(direction>0&&current>=pages-1){const next=$("[data-next]");if(next)next.click();else go("");return}body.scrollTo({left:(current+direction)*stride(),behavior:"smooth"})};
+    let touchX=null,touchPage=0;
+    const touchStart=e=>{touchX=e.changedTouches[0].clientX;touchPage=page()};
+    const touchEnd=e=>{if(touchX===null)return;const distance=e.changedTouches[0].clientX-touchX;if(Math.abs(distance)>48)move(distance<0?1:-1,touchPage);touchX=null};
     $("[data-page-back]").onclick=()=>move(-1); $("[data-page-next]").onclick=()=>move(1);
     body.addEventListener("scroll",sync,{passive:true}); body.addEventListener("touchstart",touchStart,{passive:true}); body.addEventListener("touchend",touchEnd,{passive:true});
     if(window.__breadPageKeyHandler)removeEventListener("keydown",window.__breadPageKeyHandler);
