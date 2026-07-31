@@ -12,7 +12,7 @@ window.BREAD_LIBRARY = {
       "status": "已完成",
       "accent": "#a35c48",
       "cover": "assets/media/covers/before-the-signal-cover-b8f2c8962f190e7d.jpg",
-      "description": "各種功能測試demo。你可以看到我在書中會加入什麼元素。",
+      "description": "各種功能測試demo。你可以看到我在書中會加入什麼元素。demo的劇情都是ai寫的。",
       "tags": [
         "測試",
         "demo"
@@ -33,7 +33,7 @@ window.BREAD_LIBRARY = {
             {
               "id": "p1",
               "type": "text",
-              "text": "警報響起時，林策還以為那只是例行的同步誤差。"
+              "text": "警報響起時，林良還以為那只是例行的同步誤差。"
             },
             {
               "id": "p2",
@@ -122,7 +122,7 @@ window.BREAD_LIBRARY = {
             {
               "id": "p1",
               "type": "text",
-              "text": "A 把那則通知刪了三次。第四次，它又自己回到了收件匣。"
+              "text": "林良把那則通知刪了三次。第四次，它又自己回到了收件匣。"
             },
             {
               "id": "p2",
@@ -172,7 +172,8 @@ window.BREAD_LIBRARY = {
             "value": "record"
           }
         }
-      ]
+      ],
+      "isPrivate": false
     }
   ]
 };
