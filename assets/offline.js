@@ -57,6 +57,20 @@
     $("[data-offline-clear]", drawer)?.addEventListener("click", async () => { await caches.delete(CACHE_NAME); await caches.delete(DATA_CACHE); write({ books: {} }); await showManager(); notify("已清除所有離線內容。"); });
   }
 
+  function addOfflineToSettings() {
+    const parts = location.hash.slice(2).split("/");
+    if (parts[0] !== "read") return;
+    const drawer = $("[data-drawer]");
+    if (!drawer || $("[data-offline-settings]", drawer)) return;
+    const book = findBook(parts[1]);
+    if (!book) return;
+    const section = document.createElement("section");
+    section.className = "setting";
+    section.dataset.offlineSettings = "";
+    section.innerHTML = `<span>離線閱讀</span><small>下載後可在沒有網路時繼續閱讀；可隨時刪除。</small><div class="offline-actions"><button type="button" data-offline-chapter data-book-id="${book.id}" data-chapter-id="${parts[2]}">下載本章</button><button type="button" data-offline-book data-book-id="${book.id}">下載全書</button><button type="button" data-offline-manage>管理離線內容</button></div>`;
+    drawer.append(section);
+  }
+
   document.addEventListener("click", event => {
     const button = event.target.closest("[data-offline-chapter],[data-offline-book],[data-offline-manage]");
     if (!button) return;
@@ -65,5 +79,9 @@
     const book = findBook(button.dataset.bookId);
     const ids = button.hasAttribute("data-offline-book") ? (book?.chapters || []).map(chapter => chapter.id) : [button.dataset.chapterId];
     download(button.dataset.bookId, ids).finally(() => button.disabled = false);
+  });
+
+  document.addEventListener("click", event => {
+    if (event.target.closest("[data-settings]")) setTimeout(addOfflineToSettings, 0);
   });
 })();

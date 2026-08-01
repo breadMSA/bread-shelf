@@ -1,2 +1,3 @@
-/* The reading menu contains offline downloads, so it is available on desktop too. */
-.reader-actions .menu-toggle{display:grid}
+/* Desktop already has direct actions; offline controls live in Reading settings. */
+.reader-actions .menu-toggle{display:none}
+.offline-actions{display:grid;grid-template-columns:1fr;gap:8px;margin-top:10px}.offline-actions button{border:1px solid var(--line);background:transparent;color:var(--ink);padding:9px 11px;text-align:left;font:13px var(--serif)}.offline-actions button:hover{background:var(--panel);border-color:var(--accent)}
