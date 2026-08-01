@@ -1,0 +1,2 @@
+/* The reading menu contains offline downloads, so it is available on desktop too. */
+.reader-actions .menu-toggle{display:grid}
