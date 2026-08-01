@@ -15,14 +15,14 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Noto+Serif+TC:wght@400;500;600;700&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="assets/styles.css?v=20260731-2" />
-    <link rel="stylesheet" href="assets/reader-polish.css?v=20260801-3" />
+    <link rel="stylesheet" href="assets/reader-polish.css?v=20260801-4" />
   </head>
   <body>
     <div id="app"></div>
     <script src="assets/author-config.js?v=20260730-2"></script>
     <script>
       if ("serviceWorker" in navigator) {
-        window.addEventListener("load", () => navigator.serviceWorker.register("service-worker.js?v=4"));
+        window.addEventListener("load", () => navigator.serviceWorker.register("service-worker.js?v=5"));
       }
       // Story data changes independently of the site shell. Use a fresh URL on
       // each visit so readers never remain on an older GitHub Pages cache.
@@ -30,7 +30,7 @@
       storyData.src = `data/stories.js?published=${Date.now()}`;
       storyData.onload = () => {
         const app = document.createElement("script");
-        app.src = "assets/app.js?v=20260801-3";
+        app.src = "assets/app.js?v=20260801-4";
         app.onload = () => {
           const ux = document.createElement("script");
           ux.src = "assets/ux-fixes.js?v=20260730-3";
