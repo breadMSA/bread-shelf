@@ -29,6 +29,9 @@
 /* Reader settings use an in-page menu, never a browser-owned select sheet. */
 .reader-select{position:relative;margin-top:10px}.reader-select-trigger{display:flex;width:100%;align-items:center;justify-content:space-between;border:1px solid var(--line);background:transparent;color:var(--ink);padding:11px 13px;font:14px var(--serif);text-align:left}.reader-select-trigger i{font-style:normal;color:var(--muted);font-size:18px;line-height:.7}.reader-select-menu{position:absolute;z-index:3;left:0;right:0;top:calc(100% + 5px);border:1px solid var(--line);background:var(--paper);box-shadow:0 12px 30px #0004;padding:5px}.reader-select-menu button{display:block;width:100%;border:0;background:transparent;color:var(--ink);padding:11px 10px;text-align:left;font:14px var(--serif)}.reader-select-menu button:hover,.reader-select-menu button.selected{background:color-mix(in srgb,var(--accent) 17%,transparent)}
 
+/* Offline download manager shares the reader drawer without introducing a second screen. */
+.offline-book{padding:14px 0;border-top:1px solid var(--line)}.offline-book>b{display:block;margin-bottom:8px}.offline-book .bookmark-item{grid-template-columns:1fr auto;align-items:center;padding:5px 0;border:0}.offline-book .bookmark-delete{font:12px var(--serif);padding:7px;color:var(--accent)}
+
 /* Each reader palette has its own paper, contrast, and system-bar color. */
 [data-theme="paper"]{--paper:#f4f1ea;--ink:#222521;--muted:#666963;--line:#d7d1c5;--panel:#ebe6db;--accent:#a35c48}
 [data-theme="mist"]{--paper:#e7e9e7;--ink:#28312f;--muted:#61706b;--line:#c4cdca;--panel:#dce1df;--accent:#627b73}

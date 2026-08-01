@@ -22,19 +22,21 @@
     <script src="assets/author-config.js?v=20260730-2"></script>
     <script>
       if ("serviceWorker" in navigator) {
-        window.addEventListener("load", () => navigator.serviceWorker.register("service-worker.js?v=8"));
+        window.addEventListener("load", () => navigator.serviceWorker.register("service-worker.js?v=9"));
       }
-      // Story data changes independently of the site shell. Use a fresh URL on
-      // each visit so readers never remain on an older GitHub Pages cache.
+      // The service worker refreshes this file online and can reuse it offline.
       const storyData = document.createElement("script");
-      storyData.src = `data/stories.js?published=${Date.now()}`;
+      storyData.src = "data/stories.js";
       storyData.onload = () => {
         const app = document.createElement("script");
-        app.src = "assets/app.js?v=20260801-7";
+        app.src = "assets/app.js?v=20260801-8";
         app.onload = () => {
           const ux = document.createElement("script");
           ux.src = "assets/ux-fixes.js?v=20260730-3";
           document.body.append(ux);
+          const offline = document.createElement("script");
+          offline.src = "assets/offline.js?v=1";
+          document.body.append(offline);
         };
         document.body.append(app);
       };
