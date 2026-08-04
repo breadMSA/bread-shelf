@@ -148,7 +148,16 @@ window.BREAD_LIBRARY = {
             {
               "id": "ms7ly9oyjpw6f",
               "type": "text",
-              "text": "看來你選了拔掉主機。<div><i>不過這只是demo，我不打算花力氣為demo寫劇情。</i></div>"
+              "text": "看來你選了拔掉主機。"
+            },
+            {
+              "id": "msepljlnx0fbz",
+              "type": "page-break"
+            },
+            {
+              "id": "msepllr206r8a",
+              "type": "text",
+              "text": "<i>不過這只是demo，我不打算花力氣為demo寫劇情。</i>"
             }
           ],
           "unlock": {
