@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Noto+Serif+TC:wght@400;500;600;700&display=swap');
 .format-bubble[hidden]{display:none!important}
 /* Product-flow overrides kept first so reader and author controls remain available in every theme. */
+.page-break{display:none}.story-body.paged .page-break{display:block;height:0;margin:0;padding:0;break-after:column;-webkit-column-break-after:always}
 [data-theme="night"] .edit-block{background:#252b2a}
 [data-theme="night"] .rich-editor{background:#252b2a}
 .icon-control{display:grid;place-items:center;grid-auto-flow:column;gap:3px;width:34px;height:34px;padding:6px;border:0;background:transparent;color:var(--ink);border-radius:2px}.icon-control:hover{background:var(--panel)}.icon-control svg,.floating-reader-menu svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:1.65;stroke-linecap:round;stroke-linejoin:round}.icon-control span{font:10px 'DM Mono',monospace;color:var(--muted)}.rich-editor{cursor:text!important}.edit-block input,.edit-block textarea,.edit-block select{cursor:text}.edit-block .block-controls,.edit-block .block-type{cursor:grab}.format-bubble input[type="color"]{border:0;background:transparent;width:28px;height:28px;padding:3px;vertical-align:middle}.format-bubble select{height:28px;border:0;background:transparent;color:inherit;font-size:11px;max-width:78px}.format-bubble select option{color:#222}.floating-reader-menu{display:flex;align-items:center;gap:7px}
