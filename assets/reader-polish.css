@@ -36,3 +36,20 @@
 [data-theme="paper"]{--paper:#f4f1ea;--ink:#222521;--muted:#666963;--line:#d7d1c5;--panel:#ebe6db;--accent:#a35c48}
 [data-theme="mist"]{--paper:#e7e9e7;--ink:#28312f;--muted:#61706b;--line:#c4cdca;--panel:#dce1df;--accent:#627b73}
 [data-theme="sepia"]{--paper:#eee1c9;--ink:#3b3027;--muted:#766854;--line:#d4c1a2;--panel:#e4d2b6;--accent:#985d3c}
+
+/* Chapter nav: the next link is a shrink-to-fit button, so its column must push it right. */
+.chapter-nav>div{display:flex;min-width:0}
+.chapter-nav>div:last-child{justify-content:flex-end}
+.chapter-link{min-width:0}
+.chapter-link b{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+
+/* Reader setting: which of chapter title / subtitle is the dominant heading. */
+:root[data-heading="subtitle"] .chapter-header,:root[data-heading="subtitle"] .paged-chapter-header{display:flex;flex-direction:column}
+:root[data-heading="subtitle"] .chapter-header p,:root[data-heading="subtitle"] .paged-chapter-header p{order:-1;color:var(--ink);font-size:clamp(30px,4.6vw,48px);font-weight:500;line-height:1.3;margin:11px 0 0}
+:root[data-heading="subtitle"] .chapter-header h1,:root[data-heading="subtitle"] .paged-chapter-header h1{font-size:clamp(15px,1.6vw,18px);font-weight:500;color:var(--muted);line-height:1.5;margin:6px 0 0}
+:root[data-heading="subtitle"] .reader-layout.is-paged .chapter-header p{font-size:clamp(24px,3vw,36px)}
+
+/* Running chapter name, bottom-right of the paged controls. */
+.page-controls{flex-wrap:wrap}
+.page-chapter{flex:1 0 100%;order:3;text-align:right;margin-top:8px;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font:11px 'DM Mono',monospace;color:var(--muted);opacity:.85}
+@media(max-width:760px){.page-chapter{margin-top:6px;font-size:10px}}
