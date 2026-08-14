@@ -47,9 +47,18 @@
 :root[data-heading="subtitle"] .chapter-header,:root[data-heading="subtitle"] .paged-chapter-header{display:flex;flex-direction:column}
 :root[data-heading="subtitle"] .chapter-header p,:root[data-heading="subtitle"] .paged-chapter-header p{order:-1;color:var(--ink);font-size:clamp(30px,4.6vw,48px);font-weight:500;line-height:1.3;margin:11px 0 0}
 :root[data-heading="subtitle"] .chapter-header h1,:root[data-heading="subtitle"] .paged-chapter-header h1{font-size:clamp(15px,1.6vw,18px);font-weight:500;color:var(--muted);line-height:1.5;margin:6px 0 0}
-:root[data-heading="subtitle"] .reader-layout.is-paged .chapter-header p{font-size:clamp(24px,3vw,36px)}
 
 /* Running chapter name, bottom-right of the paged controls. */
 .page-controls{flex-wrap:wrap}
 .page-chapter{flex:1 0 100%;order:3;text-align:right;margin-top:8px;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font:11px 'DM Mono',monospace;color:var(--muted);opacity:.85}
 @media(max-width:760px){.page-chapter{margin-top:6px;font-size:10px}}
+
+/* Full-size image viewer. */
+.lightbox{position:fixed;inset:0;z-index:30;display:flex;align-items:center;justify-content:center;padding:28px;background:#0b0b0ceb;overflow:auto;cursor:zoom-out;overscroll-behavior:contain}
+.lightbox img{max-width:100%;max-height:100%;object-fit:contain;cursor:zoom-in;margin:auto}
+.lightbox.zoomed{align-items:flex-start;justify-content:flex-start;cursor:default}
+.lightbox.zoomed img{max-width:none;max-height:none;width:auto;height:auto;cursor:zoom-out}
+.lightbox-close{position:fixed;top:14px;right:16px;z-index:1;width:40px;height:40px;border:0;border-radius:999px;background:#ffffff1f;color:#fff;font-size:24px;line-height:1;cursor:pointer}
+.lightbox-close:hover{background:#ffffff33}
+.story-body .story-figure img{cursor:zoom-in}
+@media(max-width:760px){.lightbox{padding:12px}.lightbox-close{top:8px;right:8px}}
