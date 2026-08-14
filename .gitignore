@@ -2,3 +2,7 @@ author-worker/.wrangler/
 node_modules/
 .dev.vars
 .env
+
+drafts/
+drafts 2/
+gpt/
