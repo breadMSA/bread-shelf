@@ -47,9 +47,13 @@
 :root[data-heading="subtitle"] .chapter-header h1,:root[data-heading="subtitle"] .paged-chapter-header h1{font-size:clamp(15px,1.6vw,18px);font-weight:500;color:var(--muted);line-height:1.5;margin:10px 0 0}
 :root[data-heading="subtitle"] .chapter-header p,:root[data-heading="subtitle"] .paged-chapter-header p{color:var(--ink);font-size:clamp(30px,4.6vw,48px);font-weight:500;line-height:1.3;margin:4px 0 0}
 
-/* Running chapter name, bottom-right of the paged controls. */
+/* Running chapter name, bottom-right of the paged controls — also the chapter picker,
+   since paged mode has no sidebar table of contents. */
 .page-controls{flex-wrap:wrap}
-.page-chapter{flex:1 0 100%;order:3;text-align:right;margin-top:8px;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font:11px 'DM Mono',monospace;color:var(--muted);opacity:.85}
+.page-chapter{flex:1 0 100%;order:3;display:flex;align-items:center;justify-content:flex-end;gap:7px;margin-top:8px;min-width:0;border:0;background:transparent;padding:2px 0;cursor:pointer;font:11px 'DM Mono',monospace;color:var(--muted);opacity:.85}
+.page-chapter span{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.page-chapter i{flex:0 0 auto;font-style:normal;font-size:13px;line-height:1;color:var(--accent)}
+.page-chapter:hover{opacity:1;color:var(--ink)}
 @media(max-width:760px){.page-chapter{margin-top:6px;font-size:10px}}
 
 /* Full-size image viewer. */
