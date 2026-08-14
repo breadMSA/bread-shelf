@@ -1,5 +1,8 @@
 /* Final reader layout overrides.  Keep this separate so reader geometry stays
    predictable instead of competing with general site styles. */
+/* The paged layout is narrower than the reader shell, so it needs its own centring:
+   without this it sits flush left inside the shell and reads as off-centre on wide screens. */
+.reader-layout.is-paged{margin-left:auto!important;margin-right:auto!important}
 .reader-layout.is-paged .chapter-header{display:none!important}
 .reader-layout.is-paged .story-body.paged{padding:0!important;column-gap:0!important;scroll-snap-type:none!important;scroll-behavior:auto!important;touch-action:pan-y;overscroll-behavior-x:contain}
 .reader-layout.is-paged .story-body.paged>*{box-sizing:border-box;width:calc(100% - 56px);margin-left:28px!important;margin-right:28px!important}
